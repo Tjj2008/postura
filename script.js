@@ -33,11 +33,20 @@ function showLevel() {
     for (let i = 0; i < 3; i++) {
         const card = document.createElement('div');
         card.classList.add('card');
-        card.textContent = i === correctCardIndex ? 'Correcto' : 'Incorrecto';
+        
+        
+        const img = document.createElement('img');
+        img.src = i === correctCardIndex ? '/img/correcto1.jpg' : '/img/incorrecto1.jpg';
+        img.alt = i === correctCardIndex ? 'Correcto' : 'Incorrecto';
+        
+    
+        card.appendChild(img);
+        
         card.addEventListener('click', () => handleCardClick(i === correctCardIndex));
         cardContainer.appendChild(card);
     }
 }
+
 
 function handleCardClick(isCorrect) {
     if (isCorrect) {

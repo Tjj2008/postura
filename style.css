@@ -50,14 +50,22 @@ body {
     background-color: white;
     border: 2px solid #0277bd;
     border-radius: 10px;
-    padding: 20px;
-    width: 100px;
-    height: 150px;
+    padding: 10px;
+    width: 150px; /* Ajusta el tamaño según lo que prefieras */
+    height: 300px; /* Ajusta el tamaño según lo que prefieras */
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     transition: transform 0.3s, background-color 0.3s;
+    overflow: hidden; /* Asegura que la imagen no sobresalga del contenedor */
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    max-height: 100%;
+    object-fit: cover; /* Asegura que la imagen se ajuste al tamaño de la tarjeta */
 }
 
 .card:hover {
