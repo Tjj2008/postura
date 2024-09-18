@@ -12,7 +12,7 @@ const incorrectMessages = [
 ];
 
 // Rutas de las imágenes para las cartas correctas e incorrectas
-const correctImages = ['img/correcto1.jpg', 'img/correcto2.png', 'img/correcto3.png'];
+const correctImages = ['img/correcto1.jpg', 'img/correcto2.jpg.png', 'img/correcto4.png'];
 const incorrectImages = ['img/incorrecto1.jpg', 'img/incorrecto2.png', 'img/incorrecto11.jpg'];
 
 function startGame() {
