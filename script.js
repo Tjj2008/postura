@@ -11,6 +11,10 @@ const incorrectMessages = [
     "La mala postura puede causar fatiga muscular y dolor crónico."
 ];
 
+// Rutas de las imágenes para las cartas correctas e incorrectas
+const correctImages = ['img/correcto1.jpg', 'img/correcto2.png', 'img/correcto3.png'];
+const incorrectImages = ['img/incorrecto1.jpg', 'img/incorrecto2.png', 'img/incorrecto11.jpg'];
+
 function startGame() {
     document.getElementById('start-btn').classList.add('hidden');
     document.getElementById('game-container').classList.remove('hidden');
@@ -28,30 +32,36 @@ function showLevel() {
     scoreDisplay.classList.remove('hidden');
 
     cardContainer.innerHTML = '';
+
+    // Establece la posición de la carta correcta
     const correctCardIndex = Math.floor(Math.random() * 3);
 
+    // Agregamos las tres cartas
     for (let i = 0; i < 3; i++) {
         const card = document.createElement('div');
         card.classList.add('card');
         
-        
         const img = document.createElement('img');
-        img.src = i === correctCardIndex ? '/img/correcto1.jpg' : '/img/incorrecto1.jpg';
-        img.alt = i === correctCardIndex ? 'Correcto' : 'Incorrecto';
         
-    
+        // Si es la carta correcta, se asigna la imagen correcta
+        if (i === correctCardIndex) {
+            img.src = correctImages[currentLevel - 1];  // Selecciona la imagen según el nivel actual
+            img.alt = 'Correcto';
+        } else {
+            img.src = incorrectImages[Math.floor(Math.random() * incorrectImages.length)];
+            img.alt = 'Incorrecto';
+        }
+        
         card.appendChild(img);
-        
         card.addEventListener('click', () => handleCardClick(i === correctCardIndex));
         cardContainer.appendChild(card);
     }
 }
 
-
 function handleCardClick(isCorrect) {
     if (isCorrect) {
         score += 100;
-        if (currentLevel < 4) {
+        if (currentLevel < 3) {
             currentLevel++;
             animateCards();
         } else {
