@@ -142,3 +142,24 @@ body {
         transform: translateY(-20px);
     }
 }
+
+#timer-display {
+    font-size: 1.5rem;
+    color: #d32f2f;
+    margin: 10px 0;
+}
+
+#next-level-btn {
+    background-color: #0277bd;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Para dar espacio entre otros elementos */
+}
+
+#next-level-btn:hover {
+    background-color: #01579b;
+}
